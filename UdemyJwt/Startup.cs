@@ -33,7 +33,8 @@ namespace UdemyJwt
                     ValidIssuer="http://localhost",
                     ValidAudience= "http://localhost",
                     IssuerSigningKey=new SymmetricSecurityKey(Encoding.UTF8.GetBytes("beshirbeshirbeshir1")),
-                    ValidateIssuerSigningKey=true
+                    ValidateIssuerSigningKey=true,
+                    ValidateLifetime=true
 
 
                 };
