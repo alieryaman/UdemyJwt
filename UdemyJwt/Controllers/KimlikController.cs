@@ -17,6 +17,19 @@ namespace UdemyJwt.Controllers
         {
             return Created("",new TokenOlusturucu().TokenOlustur());
         }
+
+        [HttpGet("[action]")]
+        public IActionResult AdminGirisYap()
+        {
+            return Created("", new TokenOlusturucu().AdminTokenOlusturcu());
+        }
+
+        [Authorize(Roles ="Admin,Member")]
+        [HttpGet("[action]")]
+        public IActionResult AdminSayfasi()
+        {
+            return Ok("Token Oluşturldu");
+        }
         [Authorize]
         [HttpGet("[action]")]
         public IActionResult Erisim()
@@ -24,5 +37,9 @@ namespace UdemyJwt.Controllers
             return Ok("Token Oluşturldu");
         }
 
+   
+    
+    
+    
     }
 }
