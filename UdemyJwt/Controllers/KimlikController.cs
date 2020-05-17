@@ -28,7 +28,11 @@ namespace UdemyJwt.Controllers
         [HttpGet("[action]")]
         public IActionResult AdminSayfasi()
         {
-            return Ok("Token Oluşturldu");
+
+            var sehir = User.Claims.Where(I => I.Type == "Ankara").FirstOrDefault();
+            var username = User.Identity.Name;
+
+            return Ok("Token admin Oluşturldu");
         }
         [Authorize]
         [HttpGet("[action]")]

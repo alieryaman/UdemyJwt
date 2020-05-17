@@ -48,13 +48,16 @@ namespace UdemyJwt
             {
                 new Claim(ClaimTypes.NameIdentifier,Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.Role,"Admin"),
-                  new Claim(ClaimTypes.Role,"Member")
+                new Claim(ClaimTypes.Role,"Member"),
+                new Claim(ClaimTypes.Name,"Besir"),
+                new Claim("Sehir","Şırnak")
+
             };
 
 
             JwtSecurityToken token = new JwtSecurityToken(issuer: "http://localhost",
                 audience: "http://localhost", notBefore: DateTime.Now, expires:
-                DateTime.Now.AddSeconds(30), signingCredentials: credentials,claims: claims);
+                DateTime.Now.AddSeconds(30), signingCredentials: credentials, claims: claims);
             JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
 
             return handler.WriteToken(token);
