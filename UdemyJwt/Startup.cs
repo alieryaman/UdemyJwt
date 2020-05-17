@@ -34,7 +34,8 @@ namespace UdemyJwt
                     ValidAudience= "http://localhost",
                     IssuerSigningKey=new SymmetricSecurityKey(Encoding.UTF8.GetBytes("beshirbeshirbeshir1")),
                     ValidateIssuerSigningKey=true,
-                    ValidateLifetime=true
+                    ValidateLifetime=true,
+                    ClockSkew=TimeSpan.Zero
 
 
                 };
@@ -58,7 +59,7 @@ namespace UdemyJwt
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

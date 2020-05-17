@@ -23,7 +23,7 @@ namespace UdemyJwt
 
             JwtSecurityToken token = new JwtSecurityToken(issuer: "http://localhost",
                 audience: "http://localhost", notBefore: DateTime.Now, expires:
-                DateTime.Now.AddMinutes(2), signingCredentials: credentials);
+                DateTime.Now.AddSeconds(30), signingCredentials: credentials);
             JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
 
             return handler.WriteToken(token);
